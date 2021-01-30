@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Setup master &mdash; plant keeper 0.0.1-beta documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Setup Grafana" href="setup_grafana.html" />
+    <link rel="prev" title="Quick Start" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> plant keeper
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Quick Start</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Setup master</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#flash-os-on-raspberry-pi">Flash OS on Raspberry Pi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connect-trough-ssh">Connect trough SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upgrade-os">Upgrade OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-raspap">Install RaspAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-docker">Install Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-docker-compose">Install docker-compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start-plant-keeper-master">Start Plant Keeper Master</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="setup_grafana.html">Setup Grafana</a></li>
+<li class="toctree-l2"><a class="reference internal" href="play_with_grafana.html">Play with Grafana</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../components/index.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core class documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">plant keeper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Quick Start</a> &raquo;</li>
+        
+      <li>Setup master</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/quickstart/setup_master.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setup-master">
+<h1>Setup master<a class="headerlink" href="#setup-master" title="Permalink to this headline">¶</a></h1>
+<p>For <strong>Master</strong>, you can use any computer, but Raspberry Pi is very suitable for this use</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To create Plant Keeper’s Wifi access Point you need to add Wifi dongle.</p>
+<p>You can use any of Wifi dongle here:  <a class="reference external" href="https://www.elinux.org/RPi_USB_Wi-Fi_Adapters">https://www.elinux.org/RPi_USB_Wi-Fi_Adapters</a></p>
+</div>
+<div class="section" id="flash-os-on-raspberry-pi">
+<h2>Flash OS on Raspberry Pi<a class="headerlink" href="#flash-os-on-raspberry-pi" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Download Raspbian latest Image : <a class="reference external" href="https://www.raspberrypi.org/downloads/raspbian/">https://www.raspberrypi.org/downloads/raspbian/</a></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Linux familiar user download <strong>Raspbian Buster Lite</strong></p>
+<p>No Linux familiar user download: <strong>Raspbian Buster with desktop and recommended software</strong></p>
+</div>
+<ol class="arabic" start="2">
+<li><p>Insert your SD Card (32Gi recommended) on computer used for flashing</p></li>
+<li><p>Flash OS :</p>
+<blockquote>
+<div><p>Use Etcher <a class="reference external" href="https://www.balena.io/etcher/">https://www.balena.io/etcher/</a> , load image, select SD Card , run flash</p>
+</div></blockquote>
+</li>
+<li><p>Activate SSH:</p>
+<blockquote>
+<div><p>In flashed SD Card add in root an empty file <strong>ssh</strong></p>
+</div></blockquote>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you don’t wan’t use additional screen, keyboard, mouse: adding this file (<strong>ssh</strong>) will allow you to establish
+SSH communication trough local network, especially for <strong>Raspbian Buster Lite</strong> which does not come
+with a graphical interface</p>
+</div>
+</div>
+<div class="section" id="connect-trough-ssh">
+<h2>Connect trough SSH<a class="headerlink" href="#connect-trough-ssh" title="Permalink to this headline">¶</a></h2>
+<p>Assume Raspberry Pi :</p>
+<ul class="simple">
+<li><p>SD Card is plugged with <strong>Rasbian Buster Lite</strong> OS</p></li>
+<li><p>is connected to local network thought ethernet wire</p></li>
+<li><p>is connected to power supply and running</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Found Raspberry Pi Ip address with:</p>
+<ul class="simple">
+<li><p>Windows user =&gt; AngryIp : <a class="reference external" href="https://angryip.org/">https://angryip.org/</a></p></li>
+<li><p>Macos user =&gt; LanScan : <a class="reference external" href="https://www.iwaxx.com/lanscan/">https://www.iwaxx.com/lanscan/</a></p></li>
+<li><p>Linux/Debian user =&gt; apt install nmap -y &amp;&amp; nmap -sP 192.168.0.0/10</p></li>
+</ul>
+</div>
+<p>For Macos/Linux user, use Terminal emulator</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh pi@192.168.&lt;??&gt;.&lt;??&gt;
+<span class="c1"># default password for pi = raspberry</span>
+</pre></div>
+</div>
+<p>For Windows user : use Putty or any Windows SSH client ,
+refer to official documentation : <a class="reference external" href="https://www.raspberrypi.org/documentation/remote-access/ssh/windows.md">https://www.raspberrypi.org/documentation/remote-access/ssh/windows.md</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Replace in IP address &lt;??&gt;.&lt;??&gt; by address found by scan</p>
+</div>
+</div>
+<div class="section" id="upgrade-os">
+<h2>Upgrade OS<a class="headerlink" href="#upgrade-os" title="Permalink to this headline">¶</a></h2>
+<p>Connect to Raspberry trough SSH or start Terminal if you use desktop version</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
+sudo apt-get dist-upgrade
+sudo reboot
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-raspap">
+<h2>Install RaspAP<a class="headerlink" href="#install-raspap" title="Permalink to this headline">¶</a></h2>
+<p>Full documentation :  <a class="reference external" href="https://raspap.com/">https://raspap.com/</a></p>
+<p>RaspAP will create Wifi Access Point</p>
+<p>Ensure Wifi dongle is plugged in USB</p>
+<p>Connect to Raspberry trough SSH or start Terminal if you use desktop version and run :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl -sL https://install.raspap.com <span class="p">|</span> bash
+</pre></div>
+</div>
+<p>Once installation completed, hardware restarted, you can access to</p>
+<ul>
+<li><p><strong>Web GUI for RaspAP</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>IP address: 10.3.141.1</p></li>
+<li><p>Username: admin</p></li>
+<li><p>Password: secret</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Wifi Access Point default configuration</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>DHCP range: 10.3.141.50 to 10.3.141.255</p></li>
+<li><p>SSID: raspi-webgui</p></li>
+<li><p>Password: ChangeMe</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>You can connect on <a class="reference external" href="http://10.3.141.1">http://10.3.141.1</a> with user=admin and password=secret</p>
+<ol class="arabic simple">
+<li><p>Change RaspAP password <a class="reference external" href="http://10.3.141.1/index.php?page=auth_conf">http://10.3.141.1/index.php?page=auth_conf</a></p></li>
+<li><p>Change Wifi Access Point configuration</p></li>
+</ol>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/raspap_ssid.png"><img alt="flow" src="../_images/raspap_ssid.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/raspap_ssid_password.png"><img alt="flow" src="../_images/raspap_ssid_password.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not skip RaspAP SSID password configuration !</p>
+</div>
+</div>
+<div class="section" id="install-docker">
+<h2>Install Docker<a class="headerlink" href="#install-docker" title="Permalink to this headline">¶</a></h2>
+<p>Docker is a tool that can package an application and its dependencies in an isolated container,
+which can be run on any server</p>
+<p>Official documentation : <a class="reference external" href="https://docs.docker.com/engine/install/debian/">https://docs.docker.com/engine/install/debian/</a></p>
+<p>Connect to Raspberry trough SSH or start Terminal if you use desktop version and run :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl -sSL https://get.docker.com <span class="p">|</span> sh
+sudo usermod -aG docker pi
+</pre></div>
+</div>
+<p>Check if Docker engine is running:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker info
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If docker wont start, restart Raspberry Pi</p>
+</div>
+</div>
+<div class="section" id="install-docker-compose">
+<h2>Install docker-compose<a class="headerlink" href="#install-docker-compose" title="Permalink to this headline">¶</a></h2>
+<p>Docker Compose is a tool for defining and running multi-container Docker applications</p>
+<p>Official documentation: <a class="reference external" href="https://docs.docker.com/compose/">https://docs.docker.com/compose/</a></p>
+<p>Connect to Raspberry trough SSH or start Terminal if you use desktop version and run :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo apt install python3 python3-pip
+pip3 install docker-compose
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-plant-keeper-master">
+<h2>Start Plant Keeper Master<a class="headerlink" href="#start-plant-keeper-master" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Change in <strong>docker-compose.yml</strong>, in service  <strong>api-gateway</strong>, change environment variable <strong>HOST_IP</strong>.</p>
+<p>By changing this variable, landing page button will point to good url</p>
+</div>
+<p>Connect to Raspberry trough SSH or start Terminal if you use desktop version and run :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/shanisma/plant-keeper
+<span class="nb">cd</span> plant-keeper
+docker-compose -d up
+</pre></div>
+</div>
+<p>Follow starting with :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">logs</span> <span class="o">--</span><span class="n">follow</span>
+<span class="c1"># use ctrl + c to stop tail logs</span>
+</pre></div>
+</div>
+<p>Once Master started, you can access to: <a class="reference external" href="http://192.168">http://192.168</a>.&lt;??&gt;.&lt;??&gt;:8001</p>
+<blockquote>
+<div><div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/landing_page.png"><img alt="flow" src="../_images/landing_page.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you can see dancing Baby Groot dancing Api gateway is running.</p>
+</div>
+<ul>
+<li><p>Django Admin (plant settings) with credentials :</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>url : <a class="reference external" href="http://192.168">http://192.168</a>.&lt;??&gt;.&lt;??&gt;:8001/admin</p></li>
+<li><p>user: plant</p></li>
+<li><p>password: keeper</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Api gateway</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>url : <a class="reference external" href="http://192.168">http://192.168</a>.&lt;??&gt;.&lt;??&gt;:8001</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Grafana with credentials:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>url : <a class="reference external" href="http://192.168">http://192.168</a>.&lt;??&gt;.&lt;??&gt;:3000</p></li>
+<li><p>user: admin</p></li>
+<li><p>password: admin</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Great ! If you are able to access to Grafana, APi Gateway.
+You will never redo this step, because docker container will restart automatically is case of crash</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="setup_grafana.html" class="btn btn-neutral float-right" title="Setup Grafana" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shanmugathas Vigneswaran
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

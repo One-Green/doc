@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Setup Grafana &mdash; plant keeper 0.0.1-beta documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Play with Grafana" href="play_with_grafana.html" />
+    <link rel="prev" title="Setup master" href="setup_master.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> plant keeper
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Quick Start</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup_master.html">Setup master</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Setup Grafana</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#first-login-and-set-password">First login and set password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-data-source-postgres-with-timescale-plugin">Add data source: Postgres (with Timescale plugin)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-data-source-loki">Add data source: Loki</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="play_with_grafana.html">Play with Grafana</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../components/index.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core class documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">plant keeper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Quick Start</a> &raquo;</li>
+        
+      <li>Setup Grafana</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/quickstart/setup_grafana.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setup-grafana">
+<h1>Setup Grafana<a class="headerlink" href="#setup-grafana" title="Permalink to this headline">¶</a></h1>
+<p>Grafana is the visualisation server for this project</p>
+<p>Check if Grafana is up and running :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">logs</span> <span class="n">plant</span><span class="o">-</span><span class="n">keeper_grafana_1</span> <span class="o">|</span> <span class="n">grep</span> <span class="s2">&quot;HTTP Server Listen&quot;</span>
+<span class="c1"># you should see text like :</span>
+<span class="c1"># t=2020-04-22T20:29:20+0000 lvl=info msg=&quot;HTTP Server Listen&quot; logger=http.server address=[::]:3000 protocol=http subUrl= socket=</span>
+</pre></div>
+</div>
+<p>If you see this test, Grafana is up</p>
+<div class="section" id="first-login-and-set-password">
+<h2>First login and set password<a class="headerlink" href="#first-login-and-set-password" title="Permalink to this headline">¶</a></h2>
+<p>Goto <a class="reference external" href="http:/">http:/</a>/&lt;raspberry_pi_IP&gt;:3000/</p>
+<p>Default login : <strong>admin</strong> , password : <strong>admin</strong></p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/grafana_login.png"><img alt="grafana_login" src="../_images/grafana_login.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can skip password change at first login, can be done later</p>
+</div>
+</div>
+<div class="section" id="add-data-source-postgres-with-timescale-plugin">
+<h2>Add data source: Postgres (with Timescale plugin)<a class="headerlink" href="#add-data-source-postgres-with-timescale-plugin" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/grafana_add_datasource.png"><img alt="data_source" src="../_images/grafana_add_datasource.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/grafana_add_datasource_postgres.png"><img alt="pg_datasource" src="../_images/grafana_add_datasource_postgres.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<p>Use for theses parameter for connexion :</p>
+<ul class="simple">
+<li><p>Database : <strong>postgres</strong></p></li>
+<li><p>User : <strong>postgres</strong></p></li>
+<li><p>Password : <strong>postgres</strong></p></li>
+</ul>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/grafana_postgres.png"><img alt="pg_datasource" src="../_images/grafana_postgres.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+</div>
+<div class="section" id="add-data-source-loki">
+<h2>Add data source: Loki<a class="headerlink" href="#add-data-source-loki" title="Permalink to this headline">¶</a></h2>
+<p>Loki light weight, power full is distributed logs system</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/grafana_add_datasource.png"><img alt="data_source" src="../_images/grafana_add_datasource.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/grafana_add_datasource_loki.png"><img alt="loki_datasource" src="../_images/grafana_add_datasource_loki.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/grafana_loki.png"><img alt="loki_datasource" src="../_images/grafana_loki.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will never redo this step. Grafana data is saved on persistent volume</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="play_with_grafana.html" class="btn btn-neutral float-right" title="Play with Grafana" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="setup_master.html" class="btn btn-neutral float-left" title="Setup master" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shanmugathas Vigneswaran
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

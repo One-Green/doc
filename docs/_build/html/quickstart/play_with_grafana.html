@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Play with Grafana &mdash; plant keeper 0.0.1-beta documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Components" href="../components/index.html" />
+    <link rel="prev" title="Setup Grafana" href="setup_grafana.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> plant keeper
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Quick Start</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup_master.html">Setup master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup_grafana.html">Setup Grafana</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Play with Grafana</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-dashboard-sprinklers-sensors-table">Create dashboard: Sprinklers Sensors Table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#post-value-to-api-gateway-with-web-browser">Post value to Api Gateway with Web browser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-simple-graphic-to-visualise-sensor-values">Create simple graphic to visualise sensor values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-simulator">Run simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#create-dashboard-sprinklers-controller">Create dashboard: Sprinklers Controller</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprinkler-setting">Sprinkler setting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../components/index.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core class documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">plant keeper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Quick Start</a> &raquo;</li>
+        
+      <li>Play with Grafana</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/quickstart/play_with_grafana.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="play-with-grafana">
+<h1>Play with Grafana<a class="headerlink" href="#play-with-grafana" title="Permalink to this headline">¶</a></h1>
+<p>At this stage you don’t need to setup ESP Node</p>
+<p>We can use API to POST data to simulate sensors entry</p>
+<div class="section" id="create-dashboard-sprinklers-sensors-table">
+<h2>Create dashboard: Sprinklers Sensors Table<a class="headerlink" href="#create-dashboard-sprinklers-sensors-table" title="Permalink to this headline">¶</a></h2>
+<p>Plant-Keeper Master support multi Sprinkler, with unique <strong>tag</strong></p>
+<p>Each Sprinkler Node must send data to Api Gateway with a <strong>tag</strong>. <strong>Tag</strong> is created on the fly if not exist in database</p>
+<div class="section" id="post-value-to-api-gateway-with-web-browser">
+<h3>Post value to Api Gateway with Web browser<a class="headerlink" href="#post-value-to-api-gateway-with-web-browser" title="Permalink to this headline">¶</a></h3>
+<p>Goto API Gateway : <a class="reference external" href="http:/">http:/</a>/&lt;raspberry_pi_IP&gt;:8001/</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/api_gateway.png"><img alt="api_gateway" src="../_images/api_gateway.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<p>Expand <strong>sprinkler-valve</strong> to send data trough web browser</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/api_gateway_sprinkler.png"><img alt="api_gateway_sprinkler" src="../_images/api_gateway_sprinkler.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Change “soil_humdity” and click <strong>execute</strong> , do it more than 5 times, to see plot in Grafana</p>
+<p>To simulate Node posting sensors values, you can <strong>/tests/sprinkler.py</strong></p>
+<p>We will use this script later in the tutorial</p>
+</div>
+</div>
+<div class="section" id="create-simple-graphic-to-visualise-sensor-values">
+<h3>Create simple graphic to visualise sensor values<a class="headerlink" href="#create-simple-graphic-to-visualise-sensor-values" title="Permalink to this headline">¶</a></h3>
+<p>In another, page open Grafana</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/grafana_add_dashboard.png"><img alt="grafana_add_dashboard" src="../_images/grafana_add_dashboard.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/grafana_add_dashboard.png"><img alt="grafana_add_dashboard_1" src="../_images/grafana_add_dashboard.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/grafana_add_dashboard_2.png"><img alt="grafana_add_dashboard_2" src="../_images/grafana_add_dashboard_2.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/grafana_add_dashboard_3.png"><img alt="grafana_add_dashboard_3" src="../_images/grafana_add_dashboard_3.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/grafana_add_dashboard_4.png"><img alt="grafana_add_dashboard_4" src="../_images/grafana_add_dashboard_4.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/grafana_add_dashboard_5.png"><img alt="grafana_add_dashboard_5" src="../_images/grafana_add_dashboard_5.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Great! You can read value added by your post</p>
+</div>
+</div>
+<div class="section" id="run-simulator">
+<h3>Run simulator<a class="headerlink" href="#run-simulator" title="Permalink to this headline">¶</a></h3>
+<p>Edit tests/sprinkler.py , line 11 <strong>api =  http://your-raspberry-pi-ip:8001/sprinkler-valve</strong>
+Run script to simulate sprinklers values with :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># python3 is required</span>
+<span class="c1"># apt install python3</span>
+<span class="nb">cd</span> tests
+python3 sprinkler.py
+<span class="c1"># use crlt + c to stop simulator</span>
+</pre></div>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/grafana_simulation.png"><img alt="grafana_simulation" src="../_images/grafana_simulation.png" style="width: 600.0px; height: 300.0px;" /></a>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This script will simulate sinusoid function from -1 to 1</p>
+</div>
+</div>
+</div>
+<div class="section" id="create-dashboard-sprinklers-controller">
+<h2>Create dashboard: Sprinklers Controller<a class="headerlink" href="#create-dashboard-sprinklers-controller" title="Permalink to this headline">¶</a></h2>
+<p>Last dashboard plot only sensors value, not really useful</p>
+<p>We are going to create sprinkler controller dashboard, including :</p>
+<ul class="simple">
+<li><p>soil humidity (moisture) from sensors</p></li>
+<li><p>soil humidity max setting</p></li>
+<li><p>soi humidity min setting</p></li>
+<li><p>controller output (power off / power on)</p></li>
+</ul>
+<div class="section" id="sprinkler-setting">
+<h3>Sprinkler setting<a class="headerlink" href="#sprinkler-setting" title="Permalink to this headline">¶</a></h3>
+<p>Goto Django Admin : <a class="reference external" href="http:/">http:/</a>/&lt;raspberry_pi_IP&gt;:8001/admin</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../components/index.html" class="btn btn-neutral float-right" title="Components" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="setup_grafana.html" class="btn btn-neutral float-left" title="Setup Grafana" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shanmugathas Vigneswaran
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
