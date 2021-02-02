@@ -5,3 +5,26 @@ One-green project official documentation
     :target: https://one-green.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
+Create dev environment
+----------------------
+
+.. code-block:: shell
+
+    pipenv install
+
+
+Live html
+---------
+
+
+.. code-block:: shell
+
+    make livehtml
+
+
+Build
+-----
+
+.. code-block:: shell
+
+    make html
