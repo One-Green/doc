@@ -42,3 +42,54 @@ You can cancel verification
 .. image:: _static/img_4.png
   :width: 400
   :alt: Verify
+
+
+Edit **cmdline.txt**
+--------------------
+
+.. warning::
+
+  In order to get Microk8s working on this Ubuntu, you need to edit **cmdline.txt**
+
+  This step is the most important, do not skip this one.
+
+
+Put again SD card on you computer, with fresh flashed Ubuntu.
+
+Open **cmdline.txt** at SD card root
+
+.. image:: _static/img.png
+  :width: 400
+  :alt: Verify
+
+Something like that will appear
+
+.. code-block:: shell
+
+    net.ifnames=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc
+
+
+Append at the end of line :
+
+.. code-block:: shell
+
+    cgroup_enable=memory cgroup_memory=1
+
+
+Once **cmdline.txt** has been edited, the file will be like that:
+
+.. code-block:: shell
+
+    net.ifnames=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc cgroup_enable=memory cgroup_memory=1
+
+Save and close **cmdline.txt**.
+
+Remove SD card safely.
+
+
+Default ssh credentials
+-----------------------
+
+- User: **ubuntu**
+
+- Password: **ubuntu**

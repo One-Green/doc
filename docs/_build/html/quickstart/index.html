@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quick Start &mdash; plant keeper 0.0.1-beta documentation</title>
+  <title>Quick Start &mdash; One-Green 0.0.1-beta documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Setup master" href="setup_master.html" />
-    <link rel="prev" title="Welcome to plant keeper’s documentation!" href="../index.html" /> 
+    <link rel="next" title="Install Ubuntu on Raspberry Pi" href="install_ubuntu_on_raspberry.html" />
+    <link rel="prev" title="Welcome to One-Green officiel documentation!" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> plant keeper
+            <a href="../index.html" class="icon icon-home"> One-Green
           
 
           
@@ -83,13 +83,11 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="setup_master.html">Setup master</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup_grafana.html">Setup Grafana</a></li>
-<li class="toctree-l2"><a class="reference internal" href="play_with_grafana.html">Play with Grafana</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_ubuntu_on_raspberry.html">Install Ubuntu on Raspberry Pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_deployment.html">Deploy Core on Raspberry Pi (MicroK8s)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../components/index.html">Components</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core class documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Architecture</a></li>
 </ul>
 
             
@@ -104,7 +102,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">plant keeper</a>
+          <a href="../index.html">One-Green</a>
         
       </nav>
 
@@ -159,27 +157,14 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Components:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="setup_master.html">Setup master</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="setup_master.html#flash-os-on-raspberry-pi">Flash OS on Raspberry Pi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup_master.html#connect-trough-ssh">Connect trough SSH</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup_master.html#upgrade-os">Upgrade OS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup_master.html#install-raspap">Install RaspAP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup_master.html#install-docker">Install Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup_master.html#install-docker-compose">Install docker-compose</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup_master.html#start-plant-keeper-master">Start Plant Keeper Master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_ubuntu_on_raspberry.html">Install Ubuntu on Raspberry Pi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install_ubuntu_on_raspberry.html#download-assets">Download assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_ubuntu_on_raspberry.html#flash-ubuntu-on-sd-card">Flash Ubuntu on SD Card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_ubuntu_on_raspberry.html#edit-cmdline-txt">Edit <strong>cmdline.txt</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_ubuntu_on_raspberry.html#default-ssh-credentials">Default ssh credentials</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="setup_grafana.html">Setup Grafana</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="setup_grafana.html#first-login-and-set-password">First login and set password</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup_grafana.html#add-data-source-postgres-with-timescale-plugin">Add data source: Postgres (with Timescale plugin)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup_grafana.html#add-data-source-loki">Add data source: Loki</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="play_with_grafana.html">Play with Grafana</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="play_with_grafana.html#create-dashboard-sprinklers-sensors-table">Create dashboard: Sprinklers Sensors Table</a></li>
-<li class="toctree-l2"><a class="reference internal" href="play_with_grafana.html#create-dashboard-sprinklers-controller">Create dashboard: Sprinklers Controller</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="raspberry_deployment.html">Deploy Core on Raspberry Pi (MicroK8s)</a></li>
 </ul>
 </div>
 </div>
@@ -192,10 +177,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="setup_master.html" class="btn btn-neutral float-right" title="Setup master" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="install_ubuntu_on_raspberry.html" class="btn btn-neutral float-right" title="Install Ubuntu on Raspberry Pi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to plant keeper’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to One-Green officiel documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

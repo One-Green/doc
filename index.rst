@@ -3,46 +3,61 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to plant keeper's documentation!
-========================================
+Welcome to One-Green officiel documentation!
+============================================
 
 This project provides a complete framework for plant cultivation both indoors and outdoors.
 
-Master
-------
+About this framework
+--------------------
 
-The framework is composed of a **Master** including functionalities such as:
+The framework is including:
 
-- API Gateway for data digestion (written in Python/Django)
+- **Core**:
 
-- Graphical interface to configure the components (Django admin interface -- future is Angular webapp !)
+   - **IoT nodes controller**:
+      built on top of Django and TimeScaleDB to persist user configuration
 
-- Interface for monitoring and alert management (Grafana)
+   - **API**:
+      Django based REST Api to connect any other GUI
 
-- Controllers to ensure to send good signal to activated, deactivate valve, pump etc ...
+   - **Admin UI**:
+      Graphical interface built on top Python Streamlit to configure **IoT nodes**
+
+   - **MQTT**:
+      Message broker
+
+   - **InfluxDB + Telegraf**:
+      Capture data from IoT devices and **IoT nodes controller** used by **Grafana** to build nice dashboard
+
+   - **Grafana**:
+      Data visualization, alert management: you can connect Slack, Telegram (and lot of others) for push notification
 
 
-Nodes
------
+- **Iot nodes firmwares**
 
-The second part of framework is **Node** ESP32 MicroPython Client class
+   - **Water Tank**:
+      Self nutrient, pH level, level controlled device
 
-Repository : https://github.com/shanisma/pk-node-client
+   - **Sprinkler**:
+      endpoint for water filling, can be used  with **Water Tank** or tap, for outdoor usage, this one can provide GPS position
+      endpoint for water filling, can be used  with **Water Tank** or tap, for outdoor usage, this one can provide GPS position
 
-Import client, select Node Type (sprinkler, water pump, cooler, heater ...)
+   - **Deep water culture**:
+      WIP
 
-You can reuse:
+   - **UV Light**:
+      WIP
 
-- Sensors and codes,  to push to **Master**
-
-- Pin Out needed to be activated/deactivated
+   - **HVAC**:
+      WIP
 
 
 .. note::
 
-   **Master** is considered the center of decision
+   **Core** is considered the center of decision
 
-   **Nodes** will follow POWER OFF / POWER ON ordered by **Master**
+   **IoT Node** will follow POWER OFF / POWER ON ordered by **Core**
 
 
 .. toctree::
@@ -50,8 +65,7 @@ You can reuse:
    :caption: Contents:
 
    quickstart/index
-   components/index
-   core/index
+   architecture/index
 
 
 Indices and tables

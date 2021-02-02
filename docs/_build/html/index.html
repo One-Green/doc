@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to plant keeper’s documentation! &mdash; plant keeper 0.0.1-beta documentation</title>
+  <title>Welcome to One-Green officiel documentation! &mdash; One-Green 0.0.1-beta documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> plant keeper
+            <a href="#" class="icon icon-home"> One-Green
           
 
           
@@ -82,8 +82,7 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/index.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components/index.html">Components</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core/index.html">Core class documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture/index.html">Architecture</a></li>
 </ul>
 
             
@@ -98,7 +97,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">plant keeper</a>
+          <a href="#">One-Green</a>
         
       </nav>
 
@@ -129,7 +128,7 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>Welcome to plant keeper’s documentation!</li>
+      <li>Welcome to One-Green officiel documentation!</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -148,51 +147,99 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-plant-keeper-s-documentation">
-<h1>Welcome to plant keeper’s documentation!<a class="headerlink" href="#welcome-to-plant-keeper-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="welcome-to-one-green-officiel-documentation">
+<h1>Welcome to One-Green officiel documentation!<a class="headerlink" href="#welcome-to-one-green-officiel-documentation" title="Permalink to this headline">¶</a></h1>
 <p>This project provides a complete framework for plant cultivation both indoors and outdoors.</p>
-<div class="section" id="master">
-<h2>Master<a class="headerlink" href="#master" title="Permalink to this headline">¶</a></h2>
-<p>The framework is composed of a <strong>Master</strong> including functionalities such as:</p>
-<ul class="simple">
-<li><p>API Gateway for data digestion (written in Python/Django)</p></li>
-<li><p>Graphical interface to configure the components (Django admin interface – future is Angular webapp !)</p></li>
-<li><p>Interface for monitoring and alert management (Grafana)</p></li>
-<li><p>Controllers to ensure to send good signal to activated, deactivate valve, pump etc …</p></li>
+<div class="section" id="about-this-framework">
+<h2>About this framework<a class="headerlink" href="#about-this-framework" title="Permalink to this headline">¶</a></h2>
+<p>The framework is including:</p>
+<ul>
+<li><p><strong>Core</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>IoT nodes controller</strong>:</dt><dd><p>built on top of Django and TimeScaleDB to persist user configuration</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>API</strong>:</dt><dd><p>Django based REST Api to connect any other GUI</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Admin UI</strong>:</dt><dd><p>Graphical interface built on top Python Streamlit to configure <strong>IoT nodes</strong></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>MQTT</strong>:</dt><dd><p>Message broker</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>InfluxDB + Telegraf</strong>:</dt><dd><p>Capture data from IoT devices and <strong>IoT nodes controller</strong> used by <strong>Grafana</strong> to build nice dashboard</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Grafana</strong>:</dt><dd><p>Data visualization, alert management: you can connect Slack, Telegram (and lot of others) for push notification</p>
+</dd>
+</dl>
+</li>
 </ul>
-</div>
-<div class="section" id="nodes">
-<h2>Nodes<a class="headerlink" href="#nodes" title="Permalink to this headline">¶</a></h2>
-<p>The second part of framework is <strong>Node</strong> ESP32 MicroPython Client class</p>
-<p>Repository : <a class="reference external" href="https://github.com/shanisma/pk-node-client">https://github.com/shanisma/pk-node-client</a></p>
-<p>Import client, select Node Type (sprinkler, water pump, cooler, heater …)</p>
-<p>You can reuse:</p>
-<ul class="simple">
-<li><p>Sensors and codes,  to push to <strong>Master</strong></p></li>
-<li><p>Pin Out needed to be activated/deactivated</p></li>
+</div></blockquote>
+</li>
+<li><p><strong>Iot nodes firmwares</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Water Tank</strong>:</dt><dd><p>Self nutrient, pH level, level controlled device</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Sprinkler</strong>:</dt><dd><p>endpoint for water filling, can be used  with <strong>Water Tank</strong> or tap, for outdoor usage, this one can provide GPS position
+endpoint for water filling, can be used  with <strong>Water Tank</strong> or tap, for outdoor usage, this one can provide GPS position</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Deep water culture</strong>:</dt><dd><p>WIP</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>UV Light</strong>:</dt><dd><p>WIP</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>HVAC</strong>:</dt><dd><p>WIP</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>Master</strong> is considered the center of decision</p>
-<p><strong>Nodes</strong> will follow POWER OFF / POWER ON ordered by <strong>Master</strong></p>
+<p><strong>Core</strong> is considered the center of decision</p>
+<p><strong>IoT Node</strong> will follow POWER OFF / POWER ON ordered by <strong>Core</strong></p>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/index.html">Quick Start</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quickstart/setup_master.html">Setup master</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart/setup_grafana.html">Setup Grafana</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart/play_with_grafana.html">Play with Grafana</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/install_ubuntu_on_raspberry.html">Install Ubuntu on Raspberry Pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/raspberry_deployment.html">Deploy Core on Raspberry Pi (MicroK8s)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="components/index.html">Components</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="components/overview.html">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/sprinklers_controller.html">Sprinklers controller (water pump also)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="core/index.html">Core class documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="core/bin_controller.html">Binary controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="core/dt_controller.html">Date time controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture/index.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture/basic.html">Basic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture/water_tank.html">Water Tank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture/sprinklers.html">Sprinklers</a></li>
 </ul>
 </li>
 </ul>
