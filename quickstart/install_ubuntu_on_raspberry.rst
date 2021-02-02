@@ -6,7 +6,7 @@ Based on official documentation : https://microk8s.io/docs/install-alternatives#
 
 Requirements:
  - Raspberry PI 4 B board (4CPU, 4GB) less ressources is not suitable
- - At least 16Gi SD Card
+ - At least 20Gi SD Card
 
 
 Download assets
