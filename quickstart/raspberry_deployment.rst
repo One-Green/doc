@@ -161,7 +161,7 @@ Clone One-Green core helm chart, and deploy it !
     # STATUS: deployed
     # REVISION: 1
 
-    # watch unti deployment is done
+    # watch until deployment is done
     sudo microk8s kubectl get po --watch
     # NAME                                      READY   STATUS              RESTARTS   AGE
     # one-green-core-ui-5497dd678f-dnb95        0/1     ContainerCreating   0          65s
@@ -178,5 +178,15 @@ If deployment is done
 
 .. code-block:: shell
 
-    WIP
+    # do CTL+C to quit and reuse  "sudo microk8s kubectl get po --watch" to check
+    # NAME                                      READY   STATUS    RESTARTS   AGE
+    # one-green-core-ui-5497dd678f-dnb95        1/1     Running   0          15m
+    # one-green-core-telegraf-0                 1/1     Running   0          15m
+    # one-green-core-mqtt-0                     1/1     Running   0          15m
+    # one-green-core-water-controller-0         1/1     Running   0          15m
+    # one-green-core-tsdb-0                     1/1     Running   0          15m
+    # one-green-core-grafana-7886f7d45f-58fzt   1/1     Running   0          15m
+    # one-green-core-influxdb-0                 1/1     Running   0          15m
+    # one-green-core-sprinklers-controller-0    1/1     Running   1          15m
+    # one-green-core-api-756dfd65d7-snrkk       1/1     Running   0          15m
     # USE CTL+C to quit watch
