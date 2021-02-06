@@ -284,3 +284,35 @@ Go back to subscribe tab and check message is published
 
 Setup Grafana
 -------------
+
+Open Grafana in browser with url: http://your_raspberry_pi_ip/one-green-core-grafana  (user = **admin**, password = use shell cmd mentioned in **Access to services**)
+
+.. image:: _static/img_11.png
+  :width: 400
+  :alt: grafana setup
+
+Once connected we must connect InfluxDB
+
+.. image:: _static/img_12.png
+  :width: 400
+  :alt: add influxdb
+
+.. image:: _static/img_13.png
+  :width: 400
+  :alt: add influxdb
+
+.. image:: _static/img_14.png
+  :width: 400
+  :alt: add influxdb
+
+Default parameter:
+
+ - [HTTP] URL : http://one-green-core-influxdb:8086
+ - [InfluxDB Details] Database: one_green
+ - [InfluxDB Details] User: admin
+ - [InfluxDB Details] User: anyrandompassword
+
+
+.. image:: _static/img_15.png
+  :width: 400
+  :alt: add influxdb
