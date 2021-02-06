@@ -9,5 +9,5 @@ Quick Start
 
    install_ubuntu_on_raspberry
    raspberry_deployment
-   kubernetes_deployment
+   firmware
 

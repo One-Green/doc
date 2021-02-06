@@ -4,7 +4,7 @@ Deploy Core on Raspberry Pi (MicroK8s)
 
 Official documentation: https://microk8s.io/docs
 
-Requirements:
+Hardware requirements:
  - Raspberry PI 4 B board (4CPU, 4GB) less ressource is not suitable
  - At least 20Gi SD Card
 
@@ -197,3 +197,49 @@ Now you can:
 
     - access to Grafana, create dashboard, add alert management
 
+**Access to services**
+----------------------
+
+If all services are up, use this command
+
+.. code-block:: shell
+
+    sudo microk8s kubectl get services -n default
+    # NAME                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+    # kubernetes                ClusterIP   10.152.183.1     <none>        443/TCP          3d12h
+    # one-green-core-ui         ClusterIP   10.152.183.208   <none>        8501/TCP         3d11h
+    # one-green-core-tsdb       ClusterIP   10.152.183.160   <none>        5432/TCP         3d11h
+    # one-green-core-mqtt       NodePort    10.152.183.79    <none>        1883:30181/TCP   3d11h
+    # one-green-core-influxdb   ClusterIP   10.152.183.202   <none>        8086/TCP         3d11h
+    # one-green-core-api        ClusterIP   10.152.183.64    <none>        8080/TCP         3d11h
+    # one-green-core-grafana    ClusterIP   10.152.183.177   <none>        80/TCP           3d11h
+
+Mqtt server
+  - ip/dns: your_raspberry_pi_ip
+  - port: **30181**
+  - default user: **admin**
+  - default password: **anyrandompassword**
+
+Grafana
+  - url: http://your_raspberry_pi_ip/one-green-core-grafana
+  - user: **admin**
+  - password:
+
+.. code-block:: shell
+
+   # use this cmd command::
+   sudo microk8s kubectl get secret --namespace default one-green-core-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+   # password is like
+   XqBSWrnJ8sy0bdOj9cYb0SMPXEY3oNfE8qdgveQG
+
+Core-ui
+  - url: http://your_raspberry_pi_ip/one-green-core-ui
+  - no user/password for now
+
+Test MQTT connexion
+-------------------
+
+
+
+Setup Grafana
+-------------
