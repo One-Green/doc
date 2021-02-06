@@ -5,7 +5,7 @@ Deploy Core on Raspberry Pi (MicroK8s)
 Official documentation: https://microk8s.io/docs
 
 Requirements:
- - Raspberry PI 4 B board (4CPU, 4GB) less ressources is not suitable
+ - Raspberry PI 4 B board (4CPU, 4GB) less ressource is not suitable
  - At least 20Gi SD Card
 
 The core stack deployment is based on Kubernetes, for that we install MicroK8s on Raspberry Pi.
@@ -190,3 +190,10 @@ If deployment is done
     # one-green-core-sprinklers-controller-0    1/1     Running   1          15m
     # one-green-core-api-756dfd65d7-snrkk       1/1     Running   0          15m
     # USE CTL+C to quit watch
+
+Now you can:
+
+    - connect IoT devices on MQTT
+
+    - access to Grafana, create dashboard, add alert management
+
