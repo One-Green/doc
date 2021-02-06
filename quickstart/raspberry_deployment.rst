@@ -308,9 +308,9 @@ Once connected we must connect InfluxDB
 Default parameter:
 
  - [HTTP] URL : http://one-green-core-influxdb:8086
- - [InfluxDB Details] Database: one_green
- - [InfluxDB Details] User: admin
- - [InfluxDB Details] User: anyrandompassword
+ - [InfluxDB Details] Database: **one_green**
+ - [InfluxDB Details] User: **admin**
+ - [InfluxDB Details] Password: **anyrandompassword**
 
 
 .. image:: _static/img_15.png
