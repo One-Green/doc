@@ -239,6 +239,47 @@ Core-ui
 Test MQTT connexion
 -------------------
 
+Software requirements
+ - MQTT.fx (install from http://www.mqttfx.jensd.de/index.php/download)
+
+Use Mqtt server parameter to try connection, by following steps.
+
+
+.. image:: _static/img_5.png
+  :width: 400
+  :alt: add new connection 1/x
+
+.. image:: _static/img_6.png
+  :width: 400
+  :alt: add new connection 2/x
+
+.. image:: _static/img_7.png
+  :width: 400
+  :alt: add new connection 2/x
+
+Once connected, we can test publish/subscribe on **echo/test**
+
+First subscribe on topic **echo/test**
+
+.. image:: _static/img_8.png
+  :width: 400
+  :alt: add new connection 2/x
+
+Then publish a message on topic **echo/test**
+
+.. image:: _static/img_9.png
+  :width: 400
+  :alt: add new connection 2/x
+
+Go back to subscribe tab and check message is published
+
+.. image:: _static/img_10.png
+  :width: 400
+  :alt: add new connection 2/x
+
+.. note::
+
+    If your message is received we can consider broker parameter are good :)
 
 
 Setup Grafana
