@@ -152,6 +152,12 @@ Clone One-Green core helm chart, and deploy it !
 
     git clone https://github.com/One-Green/helm.git
     cd helm
+
+Edit file **values_raspberry_pi_microk8s.yaml**, **line 75**, replace **192.168.0.5** by your
+Raspberry Pi IP or host. Then :
+
+.. code-block:: shell
+
     sudo microk8s helm3 upgrade  one-green-core -f values_raspberry_pi_microk8s.yaml . --namespace default --install
     # will output something like:
     # Release "one-green-core" does not exist. Installing it now.
@@ -242,6 +248,7 @@ Test MQTT connexion
 Software requirements
  - MQTT.fx (install from http://www.mqttfx.jensd.de/index.php/download)
 
+Stack is deployed on Raspberry, now we can connect to Mqtt broker to ensure Publish/Subscription is working.
 Use Mqtt server parameter to try connection, by following steps.
 
 
