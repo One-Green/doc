@@ -66,6 +66,7 @@ The framework is including:
 
    quickstart/index
    architecture/index
+   iot_devices/index
 
 
 Indices and tables
