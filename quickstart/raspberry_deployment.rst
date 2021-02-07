@@ -285,7 +285,9 @@ Go back to subscribe tab and check message is published
 Setup Grafana
 -------------
 
-Open Grafana in browser with url: http://your_raspberry_pi_ip/one-green-core-grafana  (user = **admin**, password = use shell cmd mentioned in **Access to services**)
+Open Grafana in browser with url: http://your_raspberry_pi_ip/one-green-core-grafana
+(user = **admin**, password = get password with cmd mentioned in :ref:`**Access to services**`)
+
 
 .. image:: _static/img_11.png
   :width: 400
