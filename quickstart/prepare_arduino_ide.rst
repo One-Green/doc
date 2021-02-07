@@ -6,8 +6,6 @@ Software requirements:
  - Git (install from https://git-scm.com/downloads)
  - Arduino IDE (install from https://www.arduino.cc/en/software)
  - Arduino-ESP32 flash tool chain (install by following https://github.com/espressif/arduino-esp32#installation-instructions)
- - External Package:
-    - ArduinoJson
 
 
 Install external package
