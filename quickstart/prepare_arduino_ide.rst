@@ -2,10 +2,6 @@
 Prepare Arduino IDE
 *******************
 
-Platform requirements:
- - ESP32
- - MEGA-2560 (for **Water-Tank** only)
-
 Software requirements:
  - Git (install from https://git-scm.com/downloads)
  - Arduino IDE (install from https://www.arduino.cc/en/software)
