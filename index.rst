@@ -65,8 +65,7 @@ The framework is including:
    :caption: Contents:
 
    quickstart/index
-   architecture/index
-   iot_devices/index
+   iot_nodes/index
 
 
 Indices and tables
