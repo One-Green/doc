@@ -2,12 +2,21 @@
 Sprinkler
 *********
 
-.. image:: _static/img.png
-  :width: 400
-  :alt: sprinkler
+.. image:: _static/sprinkler_arch.png
+  :alt: sprinkler architecture
 
+Board
+-----
 
-Build this board : WIP
-----------------------
+.. image:: _static/sprinkler_board.png
+  :alt: sprinkler board
 
-Electronic schema: https://oshwlab.com/shanisma/pk-node-sprinkler
+Build this board
+----------------
+
+Electronic schema:  https://oshwlab.com/shanisma/pk-node-sprinkler
+
+Firmware
+--------
+
+Code-source: https://github.com/One-Green/iot-edge-agent

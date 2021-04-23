@@ -3,14 +3,12 @@ Water Tank
 **********
 
 .. image:: _static/water_tank_arch.png
-  :width: 400
   :alt: water tank
 
 Board
 -----
 
 .. image:: _static/water_board.png
-  :width: 400
   :alt: water tank
 
 Build this board
