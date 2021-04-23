@@ -9,3 +9,4 @@ IoT Nodes
 
    water_tank
    sprinkler
+   hvac
