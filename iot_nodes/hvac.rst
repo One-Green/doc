@@ -3,7 +3,7 @@ HVAC
 ****
 
 .. image:: _static/hvac_arch.png
-  :alt: water tank
+  :alt: hvac arch
 
 Board
 -----
