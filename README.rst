@@ -28,3 +28,13 @@ Build
 .. code-block:: shell
 
     make html
+
+
+Build diagrams
+--------------
+
+.. code-block:: shell
+
+    cd diagrams && \
+    python helm_k8s_architecture.py
+    python deploy_center.py
