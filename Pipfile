@@ -8,6 +8,7 @@ sphinx-rtd-theme = "*"
 sphinxcontrib-napoleon = "*"
 Sphinx = "*"
 diagrams = "*"
+sphinx-autobuild = "*"
 
 [dev-packages]
 
