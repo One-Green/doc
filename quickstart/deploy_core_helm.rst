@@ -8,7 +8,7 @@ Helm is an easy way to deploy kubernetes resources.
 .. note::
 
   Helm is a tool to create kubernetes deployment templates, versioning, upgrade, installation and more.
-  Helm official documentation: https://helm.io
+  Helm official documentation: https://helm.sh
 
 
 First, we need to clone helm chart and update dependencies
