@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to One-Green officiel documentation!
+Welcome to One-Green official documentation!
 ============================================
 
 This project provides a complete framework for plant cultivation both indoors and outdoors.
@@ -66,6 +66,7 @@ The framework is including:
 
    quickstart/index
    iot_nodes/index
+   flash/index
 
 
 Indices and tables

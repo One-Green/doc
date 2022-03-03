@@ -9,6 +9,7 @@ sphinxcontrib-napoleon = "*"
 Sphinx = "*"
 diagrams = "*"
 sphinx-autobuild = "*"
+sphinx-tabs = "*"
 
 [dev-packages]
 
