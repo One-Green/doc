@@ -21,4 +21,4 @@ help:
 
 livehtml:
 	rm -rv _build docs || true
-	sphinx-autobuild . docs/_build/html
+	sphinx-autobuild . docs/_build/html --port 8081

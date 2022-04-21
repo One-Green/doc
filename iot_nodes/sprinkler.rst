@@ -2,8 +2,18 @@
 Sprinkler
 *********
 
+Process flow
+------------
+
 .. image:: _static/sprinkler_arch.png
   :alt: sprinkler architecture
+
+State machine
+-------------
+
+.. image:: _static/sprinkler_state_machine.png
+  :alt: sprinkler state machine
+
 
 Board
 -----
